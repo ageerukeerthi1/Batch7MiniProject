@@ -6,6 +6,8 @@ import java.util.List;
 import com.cg.iqgs.model.PolicyQuestions;
 
 public interface PQuestions {
-		PolicyQuestions addPolicyQuestions(PolicyQuestions businessSegment) throws SQLException;
-		List<PolicyQuestions> getAllBusinessSegment() throws SQLException;
+		PolicyQuestions addPolicyQuestions(PolicyQuestions policyQuetions) throws SQLException;
+//		
+		List<PolicyQuestions> getAllPolicyQuestions() throws SQLException;
+		
 }

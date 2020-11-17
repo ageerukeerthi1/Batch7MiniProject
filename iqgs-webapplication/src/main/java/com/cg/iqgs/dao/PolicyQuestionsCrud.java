@@ -37,7 +37,7 @@ public class PolicyQuestionsCrud {
 		psmt.setInt(10, policyQuestions.getPolQuesAns3Weightage());
 		psmt.setInt(11, policyQuestions.getPolQuesAns4Weightage());
 		
-				
+//				
 		int count=psmt.executeUpdate();
 		return policyQuestions;
 		

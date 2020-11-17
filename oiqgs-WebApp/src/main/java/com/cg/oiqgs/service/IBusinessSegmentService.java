@@ -9,4 +9,5 @@ import com.cg.oiqgs.model.BusinessSegment;
 public interface IBusinessSegmentService {
 	public List<BusinessSegment> getAllBusinessSegment()throws SQLException;
 	public BusinessSegment addBusinessSegment(BusinessSegment businessSegment)throws SQLException;
+	//Created interface
 }

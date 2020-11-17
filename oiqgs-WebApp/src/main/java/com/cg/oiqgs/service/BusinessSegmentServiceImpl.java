@@ -23,6 +23,8 @@ public class BusinessSegmentServiceImpl implements IBusinessSegmentService{
 	public List<BusinessSegment> getAllBusinessSegment() throws SQLException {
 		// TODO Auto-generated method stub
 		return repo.getAllBusinessSegment();
+		
+		
 	}
 
 	

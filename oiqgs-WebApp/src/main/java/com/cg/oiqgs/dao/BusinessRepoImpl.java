@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.cg.oiqgs.model.BusinessSegment;
 
-public class BusinessRepoImpl {
+public class BusinessRepoImpl implements IBusinessRepo {
 	PreparedStatement psmt;
 	ResultSet bResultSet;
 	Connection connection;

@@ -1,5 +1,4 @@
 package com.cg.oiqgsWebAppProj.model;
-
 public class Accounts {
 	private long Account_Number;
 	private String Insured_Name;
@@ -8,8 +7,7 @@ public class Accounts {
 	private String Insured_State;
 	private long Insured_Zip;
 	private String Business_Segment;
-public Accounts() {
-	
+public Accounts() {	
 }
 public Accounts(long account_Number, String insured_Name, String insured_Street, String insured_City,
 		String insured_State, long insured_Zip, String business_Segment) {

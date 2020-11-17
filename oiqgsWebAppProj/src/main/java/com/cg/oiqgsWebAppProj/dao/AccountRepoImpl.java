@@ -12,7 +12,6 @@ public class AccountRepoImpl implements AccountRepo {
 	Connection conn;
 	PreparedStatement psmt;
 	ResultSet rsAccounts;
-
 	public AccountRepoImpl() {
 		try {
 			conn=DBUtil.getConnection();
@@ -20,8 +19,7 @@ public class AccountRepoImpl implements AccountRepo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 	@Override
 	public Accounts addAccount(Accounts account) throws SQLException {		
 		psmt=conn.prepareStatement("insert into Accounts values(?,?,?,?)");
@@ -34,16 +32,11 @@ public class AccountRepoImpl implements AccountRepo {
 		psmt.setString(7, account.getBusiness_Segment());
 		psmt.executeUpdate();
 		return account;
-	}
-	
-	
+	}	
      @Override
-	public List<Accounts> getAllAccounts() throws SQLException {
-		
-	psmt=conn.prepareStatement("select * from Accounts");
-		
-	 rsAccounts=psmt.executeQuery();
-		
+	public List<Accounts> getAllAccounts() throws SQLException {		
+	psmt=conn.prepareStatement("select * from Accounts");		
+	 rsAccounts=psmt.executeQuery();		
 		List<Accounts> accounts=new ArrayList<>();
 		while(rsAccounts.next()) {
 		Accounts account=new Accounts();
@@ -58,6 +51,4 @@ public class AccountRepoImpl implements AccountRepo {
 	}
 		return accounts;
 	}
-
-
 }

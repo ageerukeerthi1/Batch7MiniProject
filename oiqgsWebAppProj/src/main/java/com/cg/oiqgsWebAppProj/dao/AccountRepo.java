@@ -4,6 +4,5 @@ import java.util.List;
 import com.cg.oiqgsWebAppProj.model.Accounts;
 public interface AccountRepo {
 	public Accounts addAccount(Accounts account)throws SQLException;
-	
 	public List<Accounts> getAllAccounts()throws SQLException;
 }

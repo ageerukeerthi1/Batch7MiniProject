@@ -21,6 +21,21 @@ create table Business_Segment (Bus_Seg_Id varchar2(10), Bus_Seg_Seq numeric(3), 
   9  Pol_Ques_Ans3_Weightage NUMBER(5),
  10  Pol_Ques_Ans4 VARCHAR(30),
  11  Pol_Ques_Ans4_Weightage NUMBER(5));
+ 
+ 
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ create table User Role(User Name varchar(20) PRIMARY KEY, Password varchar(12), Role Code varchar(10));
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ create table Policy(Policy Number numeric(10) PRIMARY KEY, Policy Premium decimal(8, 8), Account Number numeric(10));
+ 
+ 
+ 
+ 
+ 
 
 
 

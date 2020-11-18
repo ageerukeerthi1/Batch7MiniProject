@@ -12,8 +12,7 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public Accounts addAccount(Accounts account) throws SQLException {		
 		return repo.addAccount(account);
-	}
-	
+	}	
 	@Override
 	public Accounts getAccountByNumber(long account_Number) throws SQLException {		
 		return repo.getAccountByNumber(account_Number);

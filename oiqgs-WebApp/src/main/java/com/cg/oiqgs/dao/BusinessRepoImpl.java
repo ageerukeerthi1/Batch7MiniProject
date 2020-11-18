@@ -39,17 +39,16 @@ public class BusinessRepoImpl implements IBusinessRepo {
 			List<BusinessSegment> s=new ArrayList<BusinessSegment>();
 			while(bResultSet.next()) {
 			BusinessSegment businessSegment=new BusinessSegment();
-			businessSegment.setBusSegId(bResultSet.getString("busSeqId"));
-			businessSegment.setBusSegName(bResultSet.getString("busSeqName"));
-			businessSegment.setBusSegSeq(bResultSet.getInt("busSeqSeq"));
+			businessSegment.setBusSegId(bResultSet.getString("busSegId"));
+			businessSegment.setBusSegName(bResultSet.getString("busSegName"));
+			businessSegment.setBusSegSeq(bResultSet.getInt("busSegSeq"));
 			s.add(businessSegment);
 		}
 			return s;
 		}
 	
-	
 	public BusinessSegment updateBusinessSegment(BusinessSegment businessSegment) throws SQLException {
-		psmt=connection.prepareStatement("update PolicyQuestions set BusSeqId=?,BusSeqName=?,getBusSeqSeq=?" );
+		psmt=connection.prepareStatement("update BusinessSegment set BusSegId=?,BusSegName=?,getBusSegSeq=?" );
 		psmt.setString(1, businessSegment.getBusSegName());
 		psmt.setString(2, businessSegment.getBusSegId());
 		psmt.setInt(3, businessSegment.getBusSegSeq());	
@@ -57,25 +56,22 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		return businessSegment;
 	}
 	
-
-	
-
 	public BusinessSegment getBusinessSegmentBybusSeqId(String busSeqId) throws SQLException {
-		psmt=connection.prepareStatement("select * from student where busSeqid=?");
+		psmt=connection.prepareStatement("select * from student where busSegid=?");
 		psmt.setString(1, busSeqId);
 		bResultSet=psmt.executeQuery();
 		if(!bResultSet.next()) {
 			throw new BusinessSegmentNotFoundException("BusinesSegment with ID ["+busSeqId+"] does not exist");
 		}
 		BusinessSegment businessSegment=new BusinessSegment();
-		businessSegment.setBusSegId(bResultSet.getString("busSeqid"));
-		businessSegment.setBusSegName(bResultSet.getString("busSeqName"));
-		businessSegment.setBusSegSeq(bResultSet.getInt("busSeqSeq"));
+		businessSegment.setBusSegId(bResultSet.getString("busSegid"));
+		businessSegment.setBusSegName(bResultSet.getString("busSegName"));
+		businessSegment.setBusSegSeq(bResultSet.getInt("busSegSeq"));
 		return businessSegment;
 	}
 	public boolean deleteBusinessSegment(String busSegId) throws SQLException {
 		BusinessSegment oldbusinessSegment=getBusinessSegmentBybusSeqId(busSegId);
-		psmt=connection.prepareStatement("delete from PolicyQuestions where busSegId=?");
+		psmt=connection.prepareStatement("delete from BusinessSegment where busSegId=?");
 		psmt.setString(1, busSegId);
 		int deleted=psmt.executeUpdate();
 		return deleted>0;

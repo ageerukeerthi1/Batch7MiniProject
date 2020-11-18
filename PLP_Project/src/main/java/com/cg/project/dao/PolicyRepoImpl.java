@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.cg.project.model.Policies;
 import com.cg.project.model.UserRoles;
 import com.cg.project.dao.DBConnection;
+import com.cg.project.exception.PoliciesNotFoundException;
 
 public class PolicyRepoImpl implements IPolicyRepo {
 	Connection connection;
@@ -39,10 +40,46 @@ public class PolicyRepoImpl implements IPolicyRepo {
 		psmt.executeUpdate();
 		return policies;
 	}
+	public Policies getPoliciesBypolicyNumber(Long policyNumber) throws SQLException {
+		psmt=connection.prepareStatement("select * from policy where PolicyNumber=?");
+		psmt.setLong(1, policyNumber);
+		rsPolicies=psmt.executeQuery();
+		if(!rsPolicies.next()) {
+			throw new PoliciesNotFoundException("Policies with NUMBER ["+policyNumber+"] does not exist");
+		}
+		Policies policy=new Policies();
+	    policy.setPolicyNumber(rsPolicies.getLong("PolicyNumber"));
+		policy.setAccountNumber(rsPolicies.getFloat("accountnumber"));
+		policy.setPolicyPremium(rsPolicies.getInt("policypremium"));
+		return policy;
+	}
+	@Override
+	public Policies updatePolicies(Policies policy) throws SQLException {
+		psmt=connection.prepareStatement("update Policies set PolicyNumber=?,AccountNumber=?,getPolicyPremium=?" );
+		psmt.setLong(1, policy.getPolicyNumber());
+		psmt.setFloat(2, policy.getAccountNumber());
+		psmt.setLong(3, policy.getPolicyPremium());	
+		int count=psmt.executeUpdate();
+		return policy;
+	}
+	public boolean deletePolicies(long policyNumber) throws SQLException {
+		Policies oldpolicy=getPoliciesBypolicyNumber(policyNumber);
+		psmt=connection.prepareStatement("delete from Policies where PolicyNumber=?");
+		psmt.setLong(1, policyNumber);
+		int deleted=psmt.executeUpdate();
+		return false;
+	}
 	@Override
 	public Policies getPoliciesBypolicyNumber(String policyNumber) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public boolean deletePolicies(String policyNumber) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
+	
+

@@ -26,6 +26,22 @@ public class UserRolesServiceImpl implements IUserRoleService{
 	}
 
 	@Override
+	public UserRoles getUserRolesByUserName(String UserName) throws SQLException {
+		// TODO Auto-generated method stub
+		return repo.getUserRolesByusername(UserName);
+	}
+
+	@Override
+	public UserRoles updateUserRoles(UserRoles userrole) throws SQLException {
+		// TODO Auto-generated method stub
+		return repo.updateUserRoles(userrole);
+	}
+	public boolean deleteUserRoles(String UserName) throws SQLException {
+		// TODO Auto-generated method stub
+		return repo.deleteUserRoles(UserName);
+	}
+
+	@Override
 	public List<UserRoles> getAllUserRoles() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;

@@ -9,4 +9,5 @@ public interface IPolicyDetailsRepo {
 	List<PolicyDetails> getAllPolicyDetails() throws SQLException;
 	PolicyDetails getPolicyDetailsByquestionId(String questionId) throws SQLException;
 	
+	
 }

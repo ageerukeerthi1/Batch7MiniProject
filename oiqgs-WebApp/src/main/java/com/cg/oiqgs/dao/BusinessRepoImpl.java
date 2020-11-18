@@ -19,6 +19,7 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		connection=DBUtil.createConnection();
 	}
 	
+	
 	public BusinessSegment addBusinessSegment(BusinessSegment businessSegment ) throws SQLException {
 		
 		psmt=connection.prepareStatement("insert into Business_Segment values(?,?,?)");

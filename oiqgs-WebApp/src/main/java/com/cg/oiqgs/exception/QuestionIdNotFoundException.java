@@ -6,5 +6,6 @@ public class QuestionIdNotFoundException extends RuntimeException {
 		// TODO Auto-generated constructor stub
 		super(message);
 	}
+	
 
 }

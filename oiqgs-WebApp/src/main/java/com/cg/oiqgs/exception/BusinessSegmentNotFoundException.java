@@ -6,5 +6,4 @@ public class BusinessSegmentNotFoundException extends RuntimeException {
 		// TODO Auto-generated constructor stub
 		super(message);
 	}
-
 }

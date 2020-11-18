@@ -23,10 +23,21 @@ public class PolicyDetailsServiceImpl implements IPolicyDetailsService{
 
 	public List<PolicyDetails> getAllPolicyDetails() throws SQLException {
 		// TODO Auto-generated method stub
-		return repo.getAllPolicyDetails();
-		
-		
+		return repo.getAllPolicyDetails();	
 	}
 
+	public PolicyDetails getPolicyDetailsByquestionId(String questionId) throws SQLException {
+		// TODO Auto-generated method stub
+		return repo.getPolicyDetailsByquestionId(questionId);
+	}
 
+	public PolicyDetails updatePolicyDetails(PolicyDetails policyDetails) throws SQLException {
+		// TODO Auto-generated method stub
+		return repo.updatePolicyDetails(policyDetails);
+	}
+
+	public boolean deletePolicyDetails(String questionId) throws SQLException {
+		// TODO Auto-generated method stub
+		return repo.deletePolicyDetails(questionId);
+	}
 }

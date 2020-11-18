@@ -1,73 +1,68 @@
 package com.cg.oiqgsWebAppProj.model;
 public class Accounts {
-	private long Account_Number;
-	private String Insured_Name;
-	private String Insured_Street;
-	private String Insured_City;
-	private String Insured_State;
-	private long Insured_Zip;
-	private String Business_Segment;
+	private long accountNumber;
+	private String insuredName;
+	private String insuredStreet;
+	private String insuredCity;
+	private String insuredState;
+	private long insuredZip;
+	private String businessSegment;
 public Accounts() {	
 }
-public Accounts(long account_Number, String insured_Name, String insured_Street, String insured_City,
-		String insured_State, long insured_Zip, String business_Segment) {
+public Accounts(long accountNumber, String insuredName, String insuredStreet, String insuredCity, String insuredState,
+		long insuredZip, String businessSegment) {
 	super();
-	Account_Number = account_Number;
-	Insured_Name = insured_Name;
-	Insured_Street = insured_Street;
-	Insured_City = insured_City;
-	Insured_State = insured_State;
-	Insured_Zip = insured_Zip;
-	Business_Segment = business_Segment;
+	this.accountNumber = accountNumber;
+	this.insuredName = insuredName;
+	this.insuredStreet = insuredStreet;
+	this.insuredCity = insuredCity;
+	this.insuredState = insuredState;
+	this.insuredZip = insuredZip;
+	this.businessSegment = businessSegment;
 }
-public long getAccount_Number() {
-	return Account_Number;
+public long getAccountNumber() {
+	return accountNumber;
 }
-public void setAccount_Number(long account_Number) {
-	Account_Number = account_Number;
+public void setAccountNumber(long accountNumber) {
+	this.accountNumber = accountNumber;
 }
-public String getInsured_Name() {
-	return Insured_Name;
+public String getInsuredName() {
+	return insuredName;
 }
-public void setInsured_Name(String insured_Name) {
-	Insured_Name = insured_Name;
+public void setInsuredName(String insuredName) {
+	this.insuredName = insuredName;
 }
-public String getInsured_Street() {
-	return Insured_Street;
+public String getInsuredStreet() {
+	return insuredStreet;
 }
-public void setInsured_Street(String insured_Street) {
-	Insured_Street = insured_Street;
+public void setInsuredStreet(String insuredStreet) {
+	this.insuredStreet = insuredStreet;
 }
-public String getInsured_City() {
-	return Insured_City;
+public String getInsuredCity() {
+	return insuredCity;
 }
-public void setInsured_City(String insured_City) {
-	Insured_City = insured_City;
+public void setInsuredCity(String insuredCity) {
+	this.insuredCity = insuredCity;
 }
-public String getInsured_State() {
-	return Insured_State;
+public String getInsuredState() {
+	return insuredState;
 }
-public void setInsured_State(String insured_State) {
-	Insured_State = insured_State;
+public void setInsuredState(String insuredState) {
+	this.insuredState = insuredState;
 }
-public long getInsured_Zip() {
-	return Insured_Zip;
+public long getInsuredZip() {
+	return insuredZip;
 }
-public void setInsured_Zip(long insured_Zip) {
-	Insured_Zip = insured_Zip;
+public void setInsuredZip(long insuredZip) {
+	this.insuredZip = insuredZip;
 }
-public String getBusiness_Segment() {
-	return Business_Segment;
+public String getBusinessSegment() {
+	return businessSegment;
 }
-public void setBusiness_Segment(String business_Segment) {
-	Business_Segment = business_Segment;
+public void setBusinessSegment(String businessSegment) {
+	this.businessSegment = businessSegment;
 }
-@Override
-public String toString() {
-	return "Accounts [Account_Number=" + Account_Number + ", Insured_Name=" + Insured_Name + ", Insured_Street="
-			+ Insured_Street + ", Insured_City=" + Insured_City + ", Insured_State=" + Insured_State + ", Insured_Zip="
-			+ Insured_Zip + ", Business_Segment=" + Business_Segment + "]";
-}
+
 
 }
 

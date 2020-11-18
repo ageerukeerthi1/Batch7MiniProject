@@ -14,6 +14,19 @@ public class AccountServiceImpl implements AccountService{
 		return repo.addAccount(account);
 	}	
 	@Override
+	public Accounts getAccountByNumber(long accountNumber) throws SQLException {		
+		return repo.getAccountByNumber(accountNumber);
+	}
+	@Override
+	public Accounts updateAccount(Accounts account) throws SQLException{ 
+		return repo.updateAccount(account);
+	}
+
+	@Override
+	public boolean deleteAccount(long accountNumber) throws SQLException {
+		return repo.deleteAccount(accountNumber);
+	}
+	@Override
 	public List<Accounts> getAllAccounts() throws SQLException {
 		// TODO Auto-generated method stub
 		return repo.getAllAccounts();

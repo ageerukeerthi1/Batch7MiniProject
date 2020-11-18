@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.cg.oiqgs.exception.BusinessSegmentNotFoundException;
 import com.cg.oiqgs.model.BusinessSegment;
+import com.cg.oiqgs.model.PolicyDetails;
 
 public class BusinessRepoImpl implements IBusinessRepo {
 	PreparedStatement psmt;
@@ -18,8 +19,6 @@ public class BusinessRepoImpl implements IBusinessRepo {
 	public BusinessRepoImpl() throws SQLException {
 		connection=DBUtil.createConnection();
 	}
-	
-	
 	public BusinessSegment addBusinessSegment(BusinessSegment businessSegment ) throws SQLException {
 		
 		psmt=connection.prepareStatement("insert into Business_Segment values(?,?,?)");
@@ -29,7 +28,6 @@ public class BusinessRepoImpl implements IBusinessRepo {
 				
 		int count=psmt.executeUpdate();
 		return businessSegment;
-		
 	}
 	
 	public List<BusinessSegment> getAllBusinessSegment() throws SQLException {
@@ -48,6 +46,19 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		}
 			return s;
 		}
+	
+	
+	public BusinessSegment updateBusinessSegment(BusinessSegment businessSegment) throws SQLException {
+		psmt=connection.prepareStatement("update PolicyQuestions set BusSeqId=?,BusSeqName=?,getBusSeqSeq=?" );
+		psmt.setString(1, businessSegment.getBusSegName());
+		psmt.setString(2, businessSegment.getBusSegId());
+		psmt.setInt(3, businessSegment.getBusSegSeq());	
+		int count=psmt.executeUpdate();
+		return businessSegment;
+	}
+	
+
+	
 
 	public BusinessSegment getBusinessSegmentBybusSeqId(String busSeqId) throws SQLException {
 		psmt=connection.prepareStatement("select * from student where busSeqid=?");
@@ -62,5 +73,11 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		businessSegment.setBusSegSeq(bResultSet.getInt("busSeqSeq"));
 		return businessSegment;
 	}
-	
+	public boolean deleteBusinessSegment(String busSegId) throws SQLException {
+		BusinessSegment oldbusinessSegment=getBusinessSegmentBybusSeqId(busSegId);
+		psmt=connection.prepareStatement("delete from PolicyQuestions where busSegId=?");
+		psmt.setString(1, busSegId);
+		int deleted=psmt.executeUpdate();
+		return deleted>0;
+	}
 }

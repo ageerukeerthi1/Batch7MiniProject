@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.cg.iqgs.model.PolicyQuestions;
 
-public interface PolicyQuestionService {
+public interface IPolicyQuestionService {
 public PolicyQuestions addPolicyQuestions(PolicyQuestions policyQuestions)throws SQLException;	
 	public List<PolicyQuestions> getAllPolicyQuestions()throws SQLException;
 }

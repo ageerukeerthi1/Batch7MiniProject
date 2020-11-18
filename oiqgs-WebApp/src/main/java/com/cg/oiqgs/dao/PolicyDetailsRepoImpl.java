@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.cg.oiqgs.exception.QuestionIdNotFoundException;
 import com.cg.oiqgs.model.PolicyDetails;
 
 public class PolicyDetailsRepoImpl implements IPolicyDetailsRepo {
@@ -42,9 +44,17 @@ public List<PolicyDetails> getAllPolicyDetails() throws SQLException {
 	}
 		return s;
 	}
-	
-	
-	
-
-
+public PolicyDetails getPolicyDetailsByquestionId(String questionId) throws SQLException {
+	psmt=connection.prepareStatement("select * from student where questionId=?");
+	psmt.setString(1, questionId);
+	policyResultSet=psmt.executeQuery();
+	if(!policyResultSet.next()) {
+		throw new QuestionIdNotFoundException("PolicyDetails with questionId ["+questionId+"] does not exist");
+	}
+	PolicyDetails policyDetails=new PolicyDetails();
+	policyDetails.setQuestionId(policyResultSet.getString("questionId"));
+	policyDetails.setAnswer(policyResultSet.getString("answer"));
+	policyDetails.setPolicyNumber(policyResultSet.getLong("policyNumber"));
+	return policyDetails;
+}
 }

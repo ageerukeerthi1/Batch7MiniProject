@@ -23,10 +23,6 @@ public class PolicyDetailsServiceImpl implements IPolicyDetailsService{
 
 	public List<PolicyDetails> getAllPolicyDetails() throws SQLException {
 		// TODO Auto-generated method stub
-		return repo.getAllPolicyDetails();
-		
-		
+		return repo.getAllPolicyDetails();	
 	}
-
-
 }

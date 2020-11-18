@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cg.oiqgs.exception.BusinessSegmentNotFoundException;
 import com.cg.oiqgs.model.BusinessSegment;
 
 public class BusinessRepoImpl implements IBusinessRepo {
@@ -29,6 +30,7 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		return businessSegment;
 		
 	}
+	
 	public List<BusinessSegment> getAllBusinessSegment() throws SQLException {
 		
 		psmt=connection.prepareStatement("select * from Business_Segment");
@@ -45,5 +47,19 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		}
 			return s;
 		}
+
+	public BusinessSegment getBusinessSegmentBybusSeqId(String busSeqId) throws SQLException {
+		psmt=connection.prepareStatement("select * from student where busSeqid=?");
+		psmt.setString(1, busSeqId);
+		bResultSet=psmt.executeQuery();
+		if(!bResultSet.next()) {
+			throw new BusinessSegmentNotFoundException("BusinesSegment with ID ["+busSeqId+"] does not exist");
+		}
+		BusinessSegment businessSegment=new BusinessSegment();
+		businessSegment.setBusSegId(bResultSet.getString("busSeqid"));
+		businessSegment.setBusSegName(bResultSet.getString("busSeqName"));
+		businessSegment.setBusSegSeq(bResultSet.getInt("busSeqSeq"));
+		return businessSegment;
+	}
 	
 }

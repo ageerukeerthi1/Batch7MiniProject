@@ -14,8 +14,8 @@ public class AccountServiceImpl implements AccountService{
 		return repo.addAccount(account);
 	}	
 	@Override
-	public Accounts getAccountByNumber(long account_Number) throws SQLException {		
-		return repo.getAccountByNumber(account_Number);
+	public Accounts getAccountByNumber(long accountNumber) throws SQLException {		
+		return repo.getAccountByNumber(accountNumber);
 	}
 	@Override
 	public Accounts updateAccount(Accounts account) throws SQLException{ 
@@ -23,8 +23,8 @@ public class AccountServiceImpl implements AccountService{
 	}
 
 	@Override
-	public boolean deleteAccount(long account_Number) throws SQLException {
-		return repo.deleteAccount(account_Number);
+	public boolean deleteAccount(long accountNumber) throws SQLException {
+		return repo.deleteAccount(accountNumber);
 	}
 	@Override
 	public List<Accounts> getAllAccounts() throws SQLException {

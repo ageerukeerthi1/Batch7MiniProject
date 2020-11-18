@@ -67,11 +67,10 @@ public PolicyDetails getPolicyDetailsByquestionId(String questionId) throws SQLE
 }
 public boolean deletePolicyDetails(String questionId) throws SQLException {
 	PolicyDetails oldpolicyDetail=getPolicyDetailsByquestionId(questionId);
-	psmt=connection.prepareStatement("delete from PolicyQuestions where polQuesId=?");
+	psmt=connection.prepareStatement("delete from PolicyDetails where questionId=?");
 	psmt.setString(1, questionId);
 	int deleted=psmt.executeUpdate();
 	return deleted>0;
 }
 }
-
 

@@ -9,6 +9,7 @@ public class Accounts {
 	private String Business_Segment;
 public Accounts() {	
 }
+
 public Accounts(long account_Number, String insured_Name, String insured_Street, String insured_City,
 		String insured_State, long insured_Zip, String business_Segment) {
 	super();
@@ -20,6 +21,7 @@ public Accounts(long account_Number, String insured_Name, String insured_Street,
 	Insured_Zip = insured_Zip;
 	Business_Segment = business_Segment;
 }
+
 public long getAccount_Number() {
 	return Account_Number;
 }
@@ -62,6 +64,9 @@ public String getBusiness_Segment() {
 public void setBusiness_Segment(String business_Segment) {
 	Business_Segment = business_Segment;
 }
+
+
+
 @Override
 public String toString() {
 	return "Accounts [Account_Number=" + Account_Number + ", Insured_Name=" + Insured_Name + ", Insured_Street="

@@ -44,6 +44,18 @@ public class AccountCreationController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String uri=request.getRequestURI();
+		if(uri.contains("/add-account")) {
+			addAccount(request, response);
+		}
+		logger.info("Account Created");
+		//doGet(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -62,18 +74,7 @@ public class AccountCreationController extends HttpServlet {
 		}		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String uri=request.getRequestURI();
-		if(uri.contains("/add-account")) {
-			addAccount(request, response);
-		}
-		logger.info("Account Created");
-		//doGet(request, response);
-	}
+
 public void addAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		

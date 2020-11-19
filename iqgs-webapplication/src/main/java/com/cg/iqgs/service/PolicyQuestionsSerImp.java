@@ -3,12 +3,12 @@ package com.cg.iqgs.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.cg.iqgs.dao.PQuestions;
+import com.cg.iqgs.dao.IPolicyQuestionsRepository;
 import com.cg.iqgs.model.PolicyQuestions;
 
-public class PolicyQuestionsSerImp implements PolicyQuestionService  {
+public class PolicyQuestionsSerImp implements IPolicyQuestionService  {
 	
-	PQuestions repo= (PQuestions) new PolicyQuestionsSerImp();
+	IPolicyQuestionsRepository repo= (IPolicyQuestionsRepository) new PolicyQuestionsSerImp();
 	
 	
 	@Override

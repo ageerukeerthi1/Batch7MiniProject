@@ -9,5 +9,6 @@ public interface IBusinessRepo {
 	BusinessSegment addBusinessSegment(BusinessSegment businessSegment) throws SQLException;
 	List<BusinessSegment> getAllBusinessSegment() throws SQLException;
 	BusinessSegment getBusinessSegmentBybusSeqId(String busSeqId) throws SQLException;
-	
+	BusinessSegment updateBusinessSegment(BusinessSegment businessSegment) throws SQLException;
+	boolean deleteBusinessSegment(String busSegId) throws SQLException;
 }

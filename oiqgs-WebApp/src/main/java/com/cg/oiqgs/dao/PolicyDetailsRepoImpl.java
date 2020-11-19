@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.cg.oiqgs.exception.QuestionIdNotFoundException;
 import com.cg.oiqgs.model.PolicyDetails;
 
@@ -14,8 +13,6 @@ public class PolicyDetailsRepoImpl implements IPolicyDetailsRepo {
 	PreparedStatement psmt;
 	ResultSet policyResultSet;
 	Connection connection;
-
-	
 	
 	public PolicyDetailsRepoImpl() throws SQLException {
 		connection=DBUtil.createConnection();
@@ -46,6 +43,15 @@ public List<PolicyDetails> getAllPolicyDetails() throws SQLException {
 	}
 		return s;
 	}
+
+public PolicyDetails updatePolicyDetails(PolicyDetails policyDetails) throws SQLException {
+	psmt=connection.prepareStatement("update PolicyQuestions set PolicyNumber=?,QuestionId=?,Answer=?" );
+	psmt.setLong(1, policyDetails.getPolicyNumber());
+	psmt.setString(2, policyDetails.getQuestionId());
+	psmt.setString(3, policyDetails.getAnswer());	
+	int count=psmt.executeUpdate();
+	return policyDetails;
+}
 public PolicyDetails getPolicyDetailsByquestionId(String questionId) throws SQLException {
 	psmt=connection.prepareStatement("select * from student where questionId=?");
 	psmt.setString(1, questionId);
@@ -59,4 +65,12 @@ public PolicyDetails getPolicyDetailsByquestionId(String questionId) throws SQLE
 	policyDetails.setPolicyNumber(policyResultSet.getLong("policyNumber"));
 	return policyDetails;
 }
+public boolean deletePolicyDetails(String questionId) throws SQLException {
+	PolicyDetails oldpolicyDetail=getPolicyDetailsByquestionId(questionId);
+	psmt=connection.prepareStatement("delete from PolicyDetails where questionId=?");
+	psmt.setString(1, questionId);
+	int deleted=psmt.executeUpdate();
+	return deleted>0;
 }
+}
+

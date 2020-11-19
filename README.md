@@ -33,9 +33,9 @@ create table Business_Segment (Bus_Seg_Id varchar2(10), Bus_Seg_Seq numeric(3), 
  create table Policy(PolicyNumber numeric(10) PRIMARY KEY, PolicyPremium decimal(8, 8), AccountNumber numeric(10));
  
  
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
- 
- 
+ create table Policy_Details(PolicyNumber NUMBER(10) QuestionId VARCHAR2(15) Answer VARCHAR2(30));
 
 
 

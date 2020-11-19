@@ -22,7 +22,7 @@ public class AccountRepoImpl implements AccountRepo {
 	}	
 	@Override
 	public Accounts addAccount(Accounts account) throws SQLException {		
-		psmt=conn.prepareStatement("insert into Accounts values(?,?,?,?)");
+		psmt=conn.prepareStatement("insert into Accounts values(?,?,?,?,?,?,?)");
 		psmt.setLong(1, account.getAccountNumber());
 		psmt.setString(2, account.getInsuredName());
 		psmt.setString(3, account.getInsuredStreet());

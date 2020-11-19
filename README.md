@@ -35,7 +35,7 @@ create table Business_Segment (Bus_Seg_Id varchar2(10), Bus_Seg_Seq numeric(3), 
  
  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
- create table Policy_Details(PolicyNumber NUMBER(10) QuestionId VARCHAR2(15) Answer VARCHAR2(30));
+ create table Policy_Details(PolicyNumber NUMBERIC(10) QuestionId VARCHAR2(15), Answer VARCHAR2(30));
 
 
 

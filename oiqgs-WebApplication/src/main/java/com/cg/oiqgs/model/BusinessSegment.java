@@ -30,6 +30,7 @@ public class BusinessSegment {
 		return busSegName;
 	}
 
+	
 	public void setBusSegName(String busSegName) {
 		this.busSegName = busSegName;
 	}

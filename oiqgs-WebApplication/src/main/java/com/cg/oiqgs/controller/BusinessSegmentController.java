@@ -28,6 +28,7 @@ public class BusinessSegmentController extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
+		
 		try {
 			service=new BusinessSegmentServiceImpl();
 		} catch (SQLException e) {

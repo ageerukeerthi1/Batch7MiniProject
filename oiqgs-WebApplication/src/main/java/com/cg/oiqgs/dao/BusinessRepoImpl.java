@@ -25,7 +25,8 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		psmt.setString(1, businessSegment.getBusSegId());
 		psmt.setString(2, businessSegment.getBusSegName());
 		psmt.setInt(3, businessSegment.getBusSegSeq());
-				
+		
+		
 		int count=psmt.executeUpdate();
 		return businessSegment;
 	}

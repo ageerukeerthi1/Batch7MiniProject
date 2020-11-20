@@ -8,6 +8,15 @@ public class BusinessSegment {
 	public BusinessSegment() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public BusinessSegment(String busSegId, String busSegName, int busSegSeq) {
+		super();
+		this.busSegId = busSegId;
+		this.busSegName = busSegName;
+		this.busSegSeq = busSegSeq;
+	}
+
 
 	public String getBusSegId() {
 		return busSegId;

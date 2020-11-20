@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Account</title>
+<title>Add Creation</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -28,7 +28,14 @@
 <label for="insuredZip">Enter Zip code</label>
 <input type="text" name="tinsuredZip" class="form-control">
 <label for="businessSegment">Enter Business Segment</label>
-<input type="text" name="tbusinessSegment" class="form-control">
+  <select id="businessSegment" name="tbusinessSegment">
+   <option value="select">Select</option>
+    <option value="vehicle">Vehicle</option>
+    <option value="restaurant">Restaurant</option>
+    <option value="apartment">Apartment</option>
+    <option value="merchant">General Merchant</option>
+  </select><br>
+<!--<input type="text" name="tbusinessSegment" class="form-control">-->
 <button type="submit" class="btn btn-dark">Register Account</button>
 
 </form>

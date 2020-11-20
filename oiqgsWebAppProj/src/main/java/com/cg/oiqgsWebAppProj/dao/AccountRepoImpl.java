@@ -30,25 +30,25 @@ public class AccountRepoImpl implements AccountRepo {
 		psmt.setString(5, account.getInsuredState());
 		psmt.setLong(6, account.getInsuredZip());
 		psmt.setString(7, account.getBusinessSegment());
-		psmt.executeUpdate();
+		int count =psmt.executeUpdate();
 		return account;
 	}	
 	@Override
 	public Accounts getAccountByNumber(long accountNumber) throws SQLException {
-		psmt=conn.prepareStatement("select * from Accounts where accountNumber=?");
+		psmt=conn.prepareStatement("select * from Accounts where account_Number=?");
 		psmt.setLong(1, accountNumber);
 		rsAccounts=psmt.executeQuery();
 		if(!rsAccounts.next()) {
 			throw new AccountNotFoundException("Account with Number ["+accountNumber+"] does not exist");
 		}
 		Accounts account=new Accounts();
-		account.setAccountNumber(rsAccounts.getLong("accountNumber"));
-		account.setInsuredName(rsAccounts.getString("insuredName"));
-		account.setInsuredStreet(rsAccounts.getString("insuredStreet"));
-		account.setInsuredCity(rsAccounts.getString("insuredCity"));
-		account.setInsuredState(rsAccounts.getString("insuredState"));
-		account.setInsuredZip(rsAccounts.getLong("insuredZip"));
-		account.setBusinessSegment(rsAccounts.getString("businessSegment"));
+		account.setAccountNumber(rsAccounts.getLong("account_Number"));
+		account.setInsuredName(rsAccounts.getString("insured_Name"));
+		account.setInsuredStreet(rsAccounts.getString("insured_Street"));
+		account.setInsuredCity(rsAccounts.getString("insured_City"));
+		account.setInsuredState(rsAccounts.getString("insured_State"));
+		account.setInsuredZip(rsAccounts.getLong("insured_Zip"));
+		account.setBusinessSegment(rsAccounts.getString("business_Segment"));
 		return account;
 	}
 	
@@ -87,13 +87,13 @@ public class AccountRepoImpl implements AccountRepo {
 		List<Accounts> accounts=new ArrayList<>();
 		while(rsAccounts.next()) {
 		Accounts account=new Accounts();
-		account.setAccountNumber(rsAccounts.getLong("accountNumber"));
-		account.setInsuredName(rsAccounts.getString("insuredName"));
-		account.setInsuredStreet(rsAccounts.getString("insuredStreet"));
-		account.setInsuredCity(rsAccounts.getString("insuredCity"));
-		account.setInsuredState(rsAccounts.getString("insuredState"));
-		account.setInsuredZip(rsAccounts.getLong("insuredZip"));
-		account.setBusinessSegment(rsAccounts.getString("businessSegment"));
+		account.setAccountNumber(rsAccounts.getLong("account_Number"));
+		account.setInsuredName(rsAccounts.getString("insured_Name"));
+		account.setInsuredStreet(rsAccounts.getString("insured_Street"));
+		account.setInsuredCity(rsAccounts.getString("insured_City"));
+		account.setInsuredState(rsAccounts.getString("insured_State"));
+		account.setInsuredZip(rsAccounts.getLong("insured_Zip"));
+		account.setBusinessSegment(rsAccounts.getString("business_Segment"));
 		accounts.add(account);
 	}
 		return accounts;

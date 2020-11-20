@@ -1,5 +1,4 @@
 package com.cg.oiqgsWebAppProj.controller;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -29,14 +28,14 @@ public class AccountCreationController extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
-		try {
+		/*try {
 			service=new AccountServiceImpl();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
-	static Logger logger=LogManager.getLogger(AccountCreationController.class); 
+	//static Logger logger=LogManager.getLogger(AccountCreationController.class); 
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -51,11 +50,53 @@ public class AccountCreationController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String uri=request.getRequestURI();
 		if(uri.contains("/add-account")) {
-			addAccount(request, response);
+			//addAccount(request, response);
+			  long accountNumber=Long.parseLong(request.getParameter("taccountNumber"));
+				String insuredName=request.getParameter("tinsuredName");
+				String insuredStreet=request.getParameter("tinsuredStreet");
+				String insuredCity=request.getParameter("tinsuredCity");
+				String insuredState=request.getParameter("tinsuredState");
+				long insuredZip=Long.parseLong(request.getParameter("tinsuredZip"));
+				String businessSegment=request.getParameter("tbusinessSegment");
+				Accounts account=new Accounts(accountNumber,insuredName,insuredStreet,insuredCity,insuredState,insuredZip,businessSegment);						
+				
+				try {
+					service=new AccountServiceImpl();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					service.addAccount(account);
+				} catch (SQLException e) {
+					response.sendError(400);
+				}
+				HttpSession ssn=request.getSession();
+				ssn.setAttribute("account", account);
+				response.sendRedirect("view-account.jsp");
+	
 		}
-		logger.info("Account Created");
+		//logger.info("Account Created");
 		//doGet(request, response);
-	}
+	 /* long accountNumber=Long.parseLong(request.getParameter("taccountNumber"));
+		String insuredName=request.getParameter("tinsuredName");
+		String insuredStreet=request.getParameter("tinsuredStreet");
+		String insuredCity=request.getParameter("tinsuredCity");
+		String insuredState=request.getParameter("tinsuredState");
+		long insuredZip=Long.parseLong(request.getParameter("tinsuredZip"));
+		String businessSegment=request.getParameter("tbusinessSegment");
+		Accounts account=new Accounts(accountNumber,insuredName,insuredStreet,insuredCity,insuredState,insuredZip,businessSegment);						
+		try {
+			service.addAccount(account);
+		} catch (SQLException e) {
+			response.sendError(400);
+		}
+		HttpSession ssn=request.getSession();
+		ssn.setAttribute("account", account);
+		response.sendRedirect("view-account.jsp");*/
+		}
+			
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -74,37 +115,11 @@ public class AccountCreationController extends HttpServlet {
 		}		
 	}
 
-
-public void addAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		long accountNumber=Long.parseLong(request.getParameter("taccountNumber"));
-		String insuredName=request.getParameter("tinsuredName");
-		String insuredStreet=request.getParameter("tinsuredStreet");
-		String insuredCity=request.getParameter("tinsuredCity");
-		String insuredState=request.getParameter("tinsuredState");
-		long insuredZip=Long.parseLong(request.getParameter("tinsuredZip"));
-		String businessSegment=request.getParameter("tbusinessSegment");
-		Accounts account=new Accounts(accountNumber,insuredName,insuredStreet,insuredCity,insuredState,insuredZip,businessSegment);
-		
-		
-		
-		try {
-			service.addAccount(account);
-		} catch (SQLException e) {
-			response.sendError(400);
-		}
-		HttpSession ssn=request.getSession();
-		ssn.setAttribute("account", account);
-		response.sendRedirect("view-account.jsp");		
-	}
-	
 	protected void viewAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-			long accountNumber=Long.parseLong(request.getParameter("tstudentId"));
+			long accountNumber=Long.parseLong(request.getParameter("taccountNumber"));
 			Accounts account=service.getAccountByNumber(accountNumber);
 			HttpSession ssn=request.getSession();
 			ssn.setAttribute("account", account);
 			response.sendRedirect("view-account.jsp");	
-	}
-	
+	}	
 }

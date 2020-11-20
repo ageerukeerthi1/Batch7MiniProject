@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Account</title>
+<title>Header</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style type="text/css">
 ul{
@@ -23,6 +23,7 @@ color: white;
 </style>
 </head>
 <body>
+<center>
 <header>
 <h1>Account</h1>
 <ul>
@@ -32,5 +33,6 @@ color: white;
 <li><form action="view-account" method="get" class="form-inline"><input type="text" name="taccountNumber"><button type="submit" class="btn-dark">Search account</button></form></li>
 </ul>
 </header>
+</center>
 </body>
 </html>

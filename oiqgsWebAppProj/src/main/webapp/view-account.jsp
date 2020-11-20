@@ -25,16 +25,24 @@
 		<th>Insured Zip</th>
 		<th> Business Segment</th>
 	</tr>
-	
+<% Accounts account = (Accounts)session.getAttribute("accounts"); %>	
 	
 	<tr>
-		<td>${account.accountNumber}</td>
+	   <!-- <td>${account.accountNumber} </td>
 		<td>${account.insuredName} </td>
 		<td>${account.insuredStreet} </td>
 		<td>${account.insuredCity} </td>
 		<td>${account.insuredState} </td>
 		<td>${account.insuredZip} </td>
-		<td>${account.businessSegment} </td>
+		<td>${account.businessSegment} </td> -->
+		<td><%=account.getAccountNumber() %></td>
+		<td><%=account.getInsuredName() %></td>
+		<td><%=account.getInsuredStreet() %></td>
+		<td><%=account.getInsuredCity() %></td>
+		<td><%=account.getInsuredState() %></td>
+		<td><%=account.getInsuredZip() %></td>
+		<td><%=account.getBusinessSegment() %></td>
+		
 	</tr>
 	
 	</table>

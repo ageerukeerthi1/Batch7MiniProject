@@ -72,28 +72,13 @@ public class AccountCreationController extends HttpServlet {
 					response.sendError(400);
 				}
 				HttpSession ssn=request.getSession();
-				ssn.setAttribute("account", account);
+				ssn.setAttribute("accounts", account);
 				response.sendRedirect("view-account.jsp");
 	
 		}
 		//logger.info("Account Created");
 		//doGet(request, response);
-	 /* long accountNumber=Long.parseLong(request.getParameter("taccountNumber"));
-		String insuredName=request.getParameter("tinsuredName");
-		String insuredStreet=request.getParameter("tinsuredStreet");
-		String insuredCity=request.getParameter("tinsuredCity");
-		String insuredState=request.getParameter("tinsuredState");
-		long insuredZip=Long.parseLong(request.getParameter("tinsuredZip"));
-		String businessSegment=request.getParameter("tbusinessSegment");
-		Accounts account=new Accounts(accountNumber,insuredName,insuredStreet,insuredCity,insuredState,insuredZip,businessSegment);						
-		try {
-			service.addAccount(account);
-		} catch (SQLException e) {
-			response.sendError(400);
-		}
-		HttpSession ssn=request.getSession();
-		ssn.setAttribute("account", account);
-		response.sendRedirect("view-account.jsp");*/
+	
 		}
 			
 	
@@ -107,7 +92,18 @@ public class AccountCreationController extends HttpServlet {
 		String uri=request.getRequestURI();
 		if(uri.contains("/view-account")) {
 			try {
-				viewAccount(request, response);
+				service=new AccountServiceImpl();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				//viewAccount(request, response);
+				long accountNumber=Long.parseLong(request.getParameter("taccountNumber"));
+				Accounts account=service.getAccountByNumber(accountNumber);
+				HttpSession ssn=request.getSession();
+				ssn.setAttribute("accounts", account);
+				response.sendRedirect("view-account.jsp");
 			} catch (SQLException e) {
 				response.sendError(500);
 			}
@@ -115,11 +111,11 @@ public class AccountCreationController extends HttpServlet {
 		}		
 	}
 
-	protected void viewAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	/*protected void viewAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 			long accountNumber=Long.parseLong(request.getParameter("taccountNumber"));
 			Accounts account=service.getAccountByNumber(accountNumber);
 			HttpSession ssn=request.getSession();
-			ssn.setAttribute("account", account);
+			ssn.setAttribute("accounts", account);
 			response.sendRedirect("view-account.jsp");	
-	}	
+	}*/	
 }

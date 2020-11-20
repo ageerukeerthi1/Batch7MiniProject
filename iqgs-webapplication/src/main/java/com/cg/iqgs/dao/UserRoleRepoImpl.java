@@ -10,7 +10,7 @@ import java.util.List;
 import com.cg.iqgs.exception.UserRolesNotFoundException;
 import com.cg.iqgs.model.UserRoles;
 
-public class UserRoleRepoImpl implements IUserRoleRepo {
+public class UserRoleRepoImpl implements IUserRoleRepository {
 		Connection connection;
 		PreparedStatement psmt;
 		ResultSet rsUserRoles;

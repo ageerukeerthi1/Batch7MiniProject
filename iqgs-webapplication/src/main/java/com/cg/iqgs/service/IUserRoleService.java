@@ -11,4 +11,5 @@ public interface IUserRoleService {
 	public UserRoles addUserRoles(UserRoles userrole)throws SQLException;
 	public UserRoles getUserRolesByUserName(String UserName) throws SQLException, UserRolesNotFoundException;
 	public UserRoles updateUserRoles(UserRoles userrole) throws SQLException;
+	public boolean deleteUserRoles(String user_Name) throws SQLException;
 }

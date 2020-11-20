@@ -16,6 +16,24 @@
   	<description></description>
   	<servlet-class>com.cg.oiqgs.controller.IBusinessSegmentController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BusinessSegController</servlet-name>
+  	<display-name>BusinessSegController</display-name>
+  	<description></description>
+  	<servlet-class>com.cg.oiqgs.controller.BusinessSegmentController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PolicyDetailsController</servlet-name>
+  	<display-name>PolicyDetailsController</display-name>
+  	<description></description>
+  	<servlet-class>com.cg.oiqgs.controller.PolicyDetailsController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>servetrer</servlet-name>
+  	<display-name>servetrer</display-name>
+  	<description></description>
+  	<servlet-class>com.cg.oiqgs.controller.servetrer</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>BusinessSegmentController</servlet-name>
   	<url-pattern>/BusSeg</url-pattern>
@@ -23,5 +41,17 @@
   <servlet-mapping>
   	<servlet-name>IBusinessSegmentController</servlet-name>
   	<url-pattern>/IBusSeg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BusinessSegController</servlet-name>
+  	<url-pattern>/BusSeg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PolicyDetailsController</servlet-name>
+  	<url-pattern>/PolicyDetailsController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>servetrer</servlet-name>
+  	<url-pattern>/servetrer</url-pattern>
   </servlet-mapping>
 </web-app>

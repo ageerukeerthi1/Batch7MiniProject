@@ -25,17 +25,17 @@ create table Business_Segment (Bus_Seg_Id varchar2(10), Bus_Seg_Seq numeric(3), 
  
  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
- create table User Role(User Name varchar(20) PRIMARY KEY, Password varchar(12), Role Code varchar(10));
+ create table User_Roles(User Name varchar(20) PRIMARY KEY, Password varchar(12), Role_Code varchar(10));
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
  
- create table Policy(Policy Number numeric(10) PRIMARY KEY, Policy Premium decimal(8, 8), Account Number numeric(10));
+ create table Policy(PolicyNumber numeric(10) PRIMARY KEY, PolicyPremium decimal(8, 8), AccountNumber numeric(10));
  
  
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
- 
- 
+ create table Policy_Details(PolicyNumber NUMERIC(10) QuestionId VARCHAR2(15), Answer VARCHAR2(30));
 
 
 

@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.cg.oiqgs.controller.PolicyDetailsController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PolicyDetailController</servlet-name>
+  	<display-name>PolicyDetailController</display-name>
+  	<description></description>
+  	<servlet-class>com.cg.oiqgs.controller.PolicyDetailController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>BusinessSegmentController</servlet-name>
   	<url-pattern>/BusinessSegmentController</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>PolicyDetailsController</servlet-name>
   	<url-pattern>/PolDet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PolicyDetailController</servlet-name>
+  	<url-pattern>/PolicyDetailController</url-pattern>
   </servlet-mapping>
 </web-app>

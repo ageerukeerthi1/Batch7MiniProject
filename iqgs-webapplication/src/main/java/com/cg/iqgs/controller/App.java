@@ -11,4 +11,3 @@ public class App {
 	        myLogger.info("App doWork() called");
 	    }
 }
-

@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.cg.iqgs.exception.PolicyQuestionsNotFoundException;
 
 import com.cg.iqgs.model.PolicyQuestions;
+
+
 
 public class PolicyQuestionsRepoImpl implements IPolicyQuestionsRepository {
 	PreparedStatement psmt;
@@ -105,6 +106,5 @@ public class PolicyQuestionsRepoImpl implements IPolicyQuestionsRepository {
 		int deleted=psmt.executeUpdate();
 		return deleted>0;
 	}
-	
 	
 }

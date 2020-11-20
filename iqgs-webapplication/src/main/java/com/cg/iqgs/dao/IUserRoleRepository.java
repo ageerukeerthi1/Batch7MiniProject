@@ -6,7 +6,7 @@ import java.util.List;
 import com.cg.iqgs.exception.UserRolesNotFoundException;
 import com.cg.iqgs.model.UserRoles;
 
-public interface IUserRoleRepo {
+public interface IUserRoleRepository {
 	UserRoles addUserRoles(UserRoles userrole) throws SQLException;
 	List<UserRoles> getAllUserRoles() throws SQLException;
 	UserRoles getUserRolesByusername(String username) throws SQLException, UserRolesNotFoundException;

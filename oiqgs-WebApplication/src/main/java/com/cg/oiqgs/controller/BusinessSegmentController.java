@@ -70,12 +70,10 @@ public class BusinessSegmentController extends HttpServlet {
 	
 	public void addBusinessSegment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String busSegId=request.getParameter("busSegId");
-		String busSegName=request.getParameter("busSegName");
-		int busSegSeq=Integer.parseInt(request.getParameter("busSegSeq"));
-		BusinessSegment businessSegment=new BusinessSegment(busSegId,busSegName,busSegSeq);
-		
-		
+		String bus_Seg_Id=request.getParameter("bus_Seg_Id");
+		String bus_Seg_Name=request.getParameter("bus_Seg_Name");
+		int bus_Seg_Seq=Integer.parseInt(request.getParameter("bus_Seg_Seq"));
+		BusinessSegment businessSegment=new BusinessSegment(bus_Seg_Id,bus_Seg_Name,bus_Seg_Seq);
 		
 		try {
 			service.addBusinessSegment(businessSegment);
@@ -88,15 +86,15 @@ public class BusinessSegmentController extends HttpServlet {
 	}
 	
 	protected void viewBusinessSegment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-			String busSegId=request.getParameter("busSegId");
-			BusinessSegment businessSegment=service.getBusinessSegmentBybusSeqId(busSegId);
+			String bus_Seg_Id=request.getParameter("bus_Seg_Id");
+			BusinessSegment businessSegment=service.getBusinessSegmentBybusSeqId(bus_Seg_Id);
 			HttpSession ssn=request.getSession();
 			ssn.setAttribute("businessSegment", businessSegment);
 			response.sendRedirect("view-busseg.jsp");	
 	}
 	
 	protected void deleteBusinessSegment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		String busSegId=request.getParameter("busSegId");
+		String busSegId=request.getParameter("bus_Seg_Id");
 		service.deleteBusinessSegment(busSegId);
 		System.out.println("busSeg with ID "+busSegId+" Deleted");
 		response.sendRedirect("add-busseg.jsp");	

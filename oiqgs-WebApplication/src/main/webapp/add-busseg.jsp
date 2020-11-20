@@ -16,13 +16,13 @@
 </div>
 <div class="col-12">
 <form class="form-group" action="add-busseg" method="post">
-<label for="busSegId">Enter ID</label>
-<input type="text" name="busSegId" class="form-control">
-<label for="busSegName">Enter Name</label>
-<input type="text" name="busSegName" class="form-control">
-<label for="busSegSeq">Enter Seq</label>
-<input type="text" name="busSegSeq" class="form-control">
-<button type="submit" class="btn btn-dark">Register Business Segment</button>
+<label for="bus_Seg_Id">Enter ID</label>
+<input type="text" name="bus_Seg_Id" class="form-control">
+<label for="bus_Seg_Name">Enter Name</label>
+<input type="text" name="bus_Seg_Name" class="form-control">
+<label for="bus_Seg_Seq">Enter Seq</label>
+<input type="text" name="bus_Seg_Seq" class="form-control">
+<button type="submit" class="btn btn-dark">Added Business Segment</button>
 
 </form>
 </div>

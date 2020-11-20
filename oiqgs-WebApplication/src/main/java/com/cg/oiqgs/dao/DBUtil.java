@@ -6,8 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DBUtil {
-
-
+	
 	static Connection connection;
 	
 	public static Connection createConnection() throws SQLException {
@@ -16,6 +15,3 @@ public class DBUtil {
 	}
 	
 }
-
-
-

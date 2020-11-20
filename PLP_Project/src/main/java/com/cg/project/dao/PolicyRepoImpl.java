@@ -14,7 +14,7 @@ public class PolicyRepoImpl implements IPolicyRepo {
 	Connection connection;
 	PreparedStatement psmt;
 	ResultSet rsPolicies;
-	public PolicyRepoImpl() throws SQLException {
+	public void PolicyRepoImpl() throws SQLException {
 		connection=DBConnection.createConnection();
 		
 	}		
@@ -69,13 +69,17 @@ public class PolicyRepoImpl implements IPolicyRepo {
 		int deleted=psmt.executeUpdate();
 		return false;
 	}
-	@Override
+	
 	public Policies getPoliciesBypolicyNumber(String policyNumber) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
 	public boolean deletePolicies(String policyNumber) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean deletePolicies(Long policyNumber) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}

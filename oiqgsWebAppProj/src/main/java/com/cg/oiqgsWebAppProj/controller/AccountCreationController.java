@@ -58,7 +58,8 @@ public class AccountCreationController extends HttpServlet {
 				String insuredState=request.getParameter("tinsuredState");
 				long insuredZip=Long.parseLong(request.getParameter("tinsuredZip"));
 				String businessSegment=request.getParameter("tbusinessSegment");
-				Accounts account=new Accounts(accountNumber,insuredName,insuredStreet,insuredCity,insuredState,insuredZip,businessSegment);						
+				String userName=request.getParameter("tuserName");
+				Accounts account=new Accounts(accountNumber,insuredName,insuredStreet,insuredCity,insuredState,insuredZip,businessSegment,userName);						
 				
 				try {
 					service=new AccountServiceImpl();

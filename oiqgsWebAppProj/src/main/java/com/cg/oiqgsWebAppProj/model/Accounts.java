@@ -7,10 +7,12 @@ public class Accounts {
 	private String insuredState;
 	private long insuredZip;
 	private String businessSegment;
+	private String userName;
 public Accounts() {	
 }
+
 public Accounts(long accountNumber, String insuredName, String insuredStreet, String insuredCity, String insuredState,
-		long insuredZip, String businessSegment) {
+		long insuredZip, String businessSegment, String userName) {
 	super();
 	this.accountNumber = accountNumber;
 	this.insuredName = insuredName;
@@ -19,7 +21,9 @@ public Accounts(long accountNumber, String insuredName, String insuredStreet, St
 	this.insuredState = insuredState;
 	this.insuredZip = insuredZip;
 	this.businessSegment = businessSegment;
+	this.userName = userName;
 }
+
 public long getAccountNumber() {
 	return accountNumber;
 }
@@ -61,6 +65,12 @@ public String getBusinessSegment() {
 }
 public void setBusinessSegment(String businessSegment) {
 	this.businessSegment = businessSegment;
+}
+public String getUserName() {
+	return userName;
+}
+public void setUserName(String userName) {
+	this.userName = userName;
 }
 
 

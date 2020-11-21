@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<title>Add Creation</title>
+<title>Account Creation</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -37,6 +37,8 @@
     <option value="apartment">Apartment</option>
     <option value="merchant">General Merchant</option>
   </select><br>
+  <label for="userRole"><b><i>User Name</i></b> </label>
+<input type="text" name="tuserName" class="form-control">
 <!--<input type="text" name="tbusinessSegment" class="form-control">-->
 <center><button type="submit" class="btn btn-dark"><b><i>Register Account</i></b></button></center>
 

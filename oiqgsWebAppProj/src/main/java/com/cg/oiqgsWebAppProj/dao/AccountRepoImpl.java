@@ -22,7 +22,7 @@ public class AccountRepoImpl implements AccountRepo {
 	}	
 	@Override
 	public Accounts addAccount(Accounts account) throws SQLException {		
-		psmt=conn.prepareStatement("insert into Accounts values(?,?,?,?,?,?,?)");
+		psmt=conn.prepareStatement("insert into Accounts values(?,?,?,?,?,?,?,?)");
 		psmt.setLong(1, account.getAccountNumber());
 		psmt.setString(2, account.getInsuredName());
 		psmt.setString(3, account.getInsuredStreet());
@@ -30,6 +30,7 @@ public class AccountRepoImpl implements AccountRepo {
 		psmt.setString(5, account.getInsuredState());
 		psmt.setLong(6, account.getInsuredZip());
 		psmt.setString(7, account.getBusinessSegment());
+		psmt.setString(8, account.getUserName());
 		int count =psmt.executeUpdate();
 		return account;
 	}	
@@ -49,13 +50,15 @@ public class AccountRepoImpl implements AccountRepo {
 		account.setInsuredState(rsAccounts.getString("insured_State"));
 		account.setInsuredZip(rsAccounts.getLong("insured_Zip"));
 		account.setBusinessSegment(rsAccounts.getString("business_Segment"));
+		account.setUserName(rsAccounts.getString("user_name"));
+		
 		return account;
 	}
 	
 	@Override
 	public Accounts updateAccount(Accounts account) throws SQLException{
 		// TODO Auto-generated method stub
-		Accounts oldStudent=getAccountByNumber(account.getAccountNumber());
+		Accounts oldAccount=getAccountByNumber(account.getAccountNumber());
 		psmt=conn.prepareStatement("update Accounts set Insured_Name=?, Insured_Street=?, Insured_City=?,Insured_State=?, Insured_Zip=?, Business_Segment=? where Account_Number=?");
 		psmt.setLong(1, account.getAccountNumber());
 		psmt.setString(2, account.getInsuredName());

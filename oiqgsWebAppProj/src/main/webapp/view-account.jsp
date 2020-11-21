@@ -24,6 +24,7 @@
 		<th>Insured State</th>
 		<th>Insured Zip</th>
 		<th> Business Segment</th>
+		<th> User Name</th>
 	</tr>
 <% Accounts account = (Accounts)session.getAttribute("accounts"); %>	
 	
@@ -42,6 +43,7 @@
 		<td><%=account.getInsuredState() %></td>
 		<td><%=account.getInsuredZip() %></td>
 		<td><%=account.getBusinessSegment() %></td>
+		<td><%=account.getUserName() %></td>
 		
 	</tr>
 	

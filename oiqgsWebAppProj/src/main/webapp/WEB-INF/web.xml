@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>com.cg.oiqgsWebAppProj.controller.AccountCreationController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UserRoleController</servlet-name>
+  	<display-name>UserRoleController</display-name>
+  	<description></description>
+  	<servlet-class>com.cg.oiqgsWebAppProj.controller.UserRoleController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AccountCreationController</servlet-name>
   	<url-pattern>/AccountCreationController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserRoleController</servlet-name>
+  	<url-pattern>/UserRoleController</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -15,7 +15,7 @@
 <div class="col-12">
 <jsp:include page="account-header.jsp"></jsp:include>
 </div>
-<table class="table">
+<table class="table" border=1>
 	<tr>
 		<th>Account Number</th>
 		<th>Insured Name</th>

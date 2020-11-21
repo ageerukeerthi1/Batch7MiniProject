@@ -15,19 +15,19 @@ display: inline;
 list-style: none;
 }
 header{
-background-color: gray;
+background-color: powderblue;
 }
 h1{
-color: white;
+color: red;
 }
 </style>
 </head>
 <body>
 <center>
 <header>
-<h1>Account</h1>
+<h1><i><b>Account</b></i></h1>
 <ul>
-<li><a href="add-account.jsp">Add Account</a></li>
+<li><a href="add-account.jsp"></a></li>
 
 <!--<li><a href="view-all">View all Accounts</a></li>-->
 <li><form action="view-account" method="get" class="form-inline"><input type="text" name="taccountNumber"><button type="submit" class="btn-dark">Search account</button></form></li>

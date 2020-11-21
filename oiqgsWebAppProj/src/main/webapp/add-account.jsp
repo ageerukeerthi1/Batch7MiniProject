@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
 <title>Add Creation</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -14,20 +15,21 @@
 <jsp:include page="account-header.jsp"></jsp:include>
 </div>
 <div class="col-12">
+<table border=1>
 <form class="form-group" action="add-account" method="post">
-<label for="accountNumber">Enter Account Number</label>
+<label for="accountNumber"><b><i>Enter Account Number</i></b></label>
 <input type="text" name="taccountNumber" class="form-control">
-<label for="insuredName">Enter Name</label>
+<label for="insuredName"><b><i>Enter Name</i></b></label>
 <input type="text" name="tinsuredName" class="form-control">
-<label for="insuredStreet">Enter Street</label>
+<label for="insuredStreet"><b><i>Enter Street</i></b></label>
 <input type="text" name="tinsuredStreet" class="form-control">
-<label for="insuredCity">Enter City</label>
+<label for="insuredCity"><b><i>Enter City</i></b></label>
 <input type="text" name="tinsuredCity" class="form-control">
-<label for="insuredState">Enter State</label>
+<label for="insuredState"><b><i>Enter State</i></b></label>
 <input type="text" name="tinsuredState" class="form-control">
-<label for="insuredZip">Enter Zip code</label>
+<label for="insuredZip"><b><i>Enter Zip code</i></b> </label>
 <input type="text" name="tinsuredZip" class="form-control">
-<label for="businessSegment">Enter Business Segment</label>
+<label for="businessSegment"><b><i>Enter Business Segment   :  </i></b></label>
   <select id="businessSegment" name="tbusinessSegment">
    <option value="select">Select</option>
     <option value="vehicle">Vehicle</option>
@@ -36,9 +38,10 @@
     <option value="merchant">General Merchant</option>
   </select><br>
 <!--<input type="text" name="tbusinessSegment" class="form-control">-->
-<button type="submit" class="btn btn-dark">Register Account</button>
+<center><button type="submit" class="btn btn-dark"><b><i>Register Account</i></b></button></center>
 
 </form>
+</table>
 </div>
 </div>
 </div>

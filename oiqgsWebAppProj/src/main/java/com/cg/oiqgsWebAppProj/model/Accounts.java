@@ -9,6 +9,7 @@ public class Accounts {
 	private String businessSegment;
 	private String userName;
 public Accounts() {	
+
 }
 
 public Accounts(long accountNumber, String insuredName, String insuredStreet, String insuredCity, String insuredState,

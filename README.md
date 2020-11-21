@@ -35,7 +35,7 @@ create table Accounts(Account_Number numeric(10) PRIMARY KEY,Insured_Name varcha
  
  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
- create table Policy_Details(PolicyNumber NUMERIC(10) QuestionId VARCHAR2(15), Answer VARCHAR2(30));
+ create table Policy_Details(PolicyNumber NUMERIC(10), QuestionId VARCHAR2(15), Answer VARCHAR2(30));
 
 
 

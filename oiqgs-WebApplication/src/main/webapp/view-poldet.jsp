@@ -13,20 +13,20 @@
 <div class="row">
 <div class="col-12">
 <div class="col-12">
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="poldet-header.jsp"></jsp:include>
 </div>
 <table class="table">
 	<tr>
-		<th>BusSegId</th>
-		<th>BusSegSeq</th>
-		<th>BusSegName</th>
+	    <th>PolicyNumber</th>
+		<th>QuestionId</th>
+		<th>Answer</th>
 	</tr>
 	
 	
 	<tr>
-		<td>${businessSegment.busSegId}</td>
-		<td>${businessSegment.busSegSeq} </td>
-		<td>${businessSegment.busSegName} </td>
+	    <td>${policyDetails.policyNumber} </td>
+		<td>${policyDetails.questionId}</td>
+		<td>${policyDetails.answer} </td>
 	</tr>
 	
 	</table>

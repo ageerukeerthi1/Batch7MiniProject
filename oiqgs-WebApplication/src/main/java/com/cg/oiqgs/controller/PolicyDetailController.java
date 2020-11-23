@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import com.cg.oiqgs.model.BusinessSegment;
 import com.cg.oiqgs.model.PolicyDetails;
 import com.cg.oiqgs.service.IPolicyDetailsService;
 import com.cg.oiqgs.service.PolicyDetailsServiceImpl;
@@ -19,7 +20,7 @@ import com.cg.oiqgs.service.PolicyDetailsServiceImpl;
 /**
  * Servlet implementation class StudentRegistrationController
  */
-@WebServlet({"/add-poldet","/view-poldet"})
+@WebServlet({"/add-poldet","/view-poldet","/viewall-poldet"})
 public class PolicyDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +33,6 @@ public class PolicyDetailController extends HttpServlet {
 		try {
 			service=new PolicyDetailsServiceImpl();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -55,29 +55,44 @@ public class PolicyDetailController extends HttpServlet {
 				response.sendError(500);
 			}
 			
-		}	
+		}
+		else if(uri.contains("/viewall-poldet")) {
+			try {
+				viewAllPolicyDetails(request,response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public void addPolicyDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Long policyNumber=Long.parseLong(request.getParameter("policyNumber"));
-		String questionId=request.getParameter("questionId");
-		String answer=request.getParameter("answer");
+		long policyNumber=Long.parseLong(request.getParameter("PolicyNumber"));
+		String questionId=request.getParameter("QuestionId");
+		String answer=request.getParameter("Answer");
 		PolicyDetails policyDetails=new PolicyDetails(policyNumber,questionId,answer);
 		
 		try {
 			service.addPolicyDetails(policyDetails);
 		} catch (SQLException e) {
-			response.sendError(400);
+			e.printStackTrace();
 		}
 		HttpSession ssn=request.getSession();
 		ssn.setAttribute("policyDetails", policyDetails);
 		response.sendRedirect("view-poldet.jsp");		
 	}
 	
+protected void viewAllPolicyDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		
+		List<PolicyDetails> policyDetails=service.getAllPolicyDetails();
+		HttpSession ssn=request.getSession();
+		ssn.setAttribute("policyDetails", policyDetails);
+		response.sendRedirect("viewall-poldet.jsp");	
+}
 	protected void viewPolicyDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-			String questionId=request.getParameter("questionId");
-			PolicyDetails policyDetails=service.getPolicyDetailsByquestionId(questionId);
+		long policyNumber=Long.parseLong(request.getParameter("PolicyNumber"));
+			PolicyDetails policyDetails=service.getPolicyDetailsBypolicyNumber(policyNumber);
 			HttpSession ssn=request.getSession();
 			ssn.setAttribute("policyDetails", policyDetails);
 			response.sendRedirect("view-poldet.jsp");	

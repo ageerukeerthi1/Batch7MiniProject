@@ -23,36 +23,18 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		
 		psmt=connection.prepareStatement("insert into Business_Segment values(?,?,?)");
 		psmt.setString(1, businessSegment.getBusSegId());
-		psmt.setString(2, businessSegment.getBusSegName());
-		psmt.setInt(3, businessSegment.getBusSegSeq());
-		
+		psmt.setInt(2, businessSegment.getBusSegSeq());
+		psmt.setString(3, businessSegment.getBusSegName());
 		
 		int count=psmt.executeUpdate();
 		return businessSegment;
 	}
 	
-	public List<BusinessSegment> getAllBusinessSegment() throws SQLException {
-		
-		psmt=connection.prepareStatement("select * from Business_Segment");
-			
-			bResultSet=psmt.executeQuery();
-			
-			List<BusinessSegment> s=new ArrayList<BusinessSegment>();
-			while(bResultSet.next()) {
-			BusinessSegment businessSegment=new BusinessSegment();
-			businessSegment.setBusSegId(bResultSet.getString("bus_Seg_Id"));
-			businessSegment.setBusSegName(bResultSet.getString("bus_Seg_Name"));
-			businessSegment.setBusSegSeq(bResultSet.getInt("bus_Seg_Seq"));
-			s.add(businessSegment);
-		}
-			return s;
-		}
-	
 	public BusinessSegment updateBusinessSegment(BusinessSegment businessSegment) throws SQLException {
 		psmt=connection.prepareStatement("update Business_Segment set Bus_Seg_Id=?,Bus_Seg_Name=?,Bus_Seg_Seq=?" );
-		psmt.setString(1, businessSegment.getBusSegName());
-		psmt.setString(2, businessSegment.getBusSegId());
-		psmt.setInt(3, businessSegment.getBusSegSeq());	
+		psmt.setString(1, businessSegment.getBusSegId());
+		psmt.setInt(2, businessSegment.getBusSegSeq());
+		psmt.setString(3, businessSegment.getBusSegName());
 		int count=psmt.executeUpdate();
 		return businessSegment;
 	}
@@ -66,8 +48,9 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		}
 		BusinessSegment businessSegment=new BusinessSegment();
 		businessSegment.setBusSegId(bResultSet.getString("Bus_Seg_Id"));
-		businessSegment.setBusSegName(bResultSet.getString("Bus_Seg_Name"));
 		businessSegment.setBusSegSeq(bResultSet.getInt("Bus_Seg_Seq"));
+		businessSegment.setBusSegName(bResultSet.getString("Bus_Seg_Name"));
+		
 		return businessSegment;
 	}
 	public boolean deleteBusinessSegment(String busSegId) throws SQLException {
@@ -77,4 +60,21 @@ public class BusinessRepoImpl implements IBusinessRepo {
 		int deleted=psmt.executeUpdate();
 		return deleted>0;
 	}
+	
+	public List<BusinessSegment> getAllBusinessSegment() throws SQLException {
+		
+		psmt=connection.prepareStatement("select * from Business_Segment");
+			
+		     bResultSet=psmt.executeQuery();
+			
+			List<BusinessSegment> businessSegments=new ArrayList<BusinessSegment>();
+			while(bResultSet.next()) {
+				BusinessSegment businessSegment=new BusinessSegment();
+				businessSegment.setBusSegId(bResultSet.getString("Bus_Seg_Id"));
+				businessSegment.setBusSegSeq(bResultSet.getInt("Bus_Seg_Seq"));
+				businessSegment.setBusSegName(bResultSet.getString("Bus_Seg_Name"));
+			businessSegments.add(businessSegment);
+		}
+			return businessSegments;
+		}
 }

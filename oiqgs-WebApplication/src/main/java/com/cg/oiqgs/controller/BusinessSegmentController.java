@@ -19,7 +19,7 @@ import com.cg.oiqgs.service.IBusinessSegmentService;
 /**
  * Servlet implementation class StudentRegistrationController
  */
-@WebServlet({"/add-busseg","/view-busseg","/delete"})
+@WebServlet({"/add-busseg","/view-busseg","/view-all","/delete"})
 public class BusinessSegmentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -53,13 +53,21 @@ public class BusinessSegmentController extends HttpServlet {
 			try {
 				viewBusinessSegment(request, response);
 			} catch (SQLException e) {
-				response.sendError(500);
+				e.printStackTrace();
 			}
 			
 		}
 		else if(uri.contains("/delete")) {
 			try {
 				deleteBusinessSegment(request, response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(uri.contains("/view-all")) {
+			try {
+				viewAllBusinessSegment(request,response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -78,16 +86,24 @@ public class BusinessSegmentController extends HttpServlet {
 		try {
 			service.addBusinessSegment(businessSegment);
 		} catch (SQLException e) {
-			response.sendError(400);
+			e.printStackTrace();
 		}
 		HttpSession ssn=request.getSession();
 		ssn.setAttribute("businessSegment", businessSegment);
 		response.sendRedirect("view-busseg.jsp");		
 	}
 	
+	protected void viewAllBusinessSegment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		
+		List<BusinessSegment> businessSegments=service.getAllBusinessSegment();
+		HttpSession ssn=request.getSession();
+		ssn.setAttribute("businessSegments", businessSegments);
+		response.sendRedirect("view-all.jsp");	
+}
+	
 	protected void viewBusinessSegment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 			String bus_Seg_Id=request.getParameter("bus_Seg_Id");
-			BusinessSegment businessSegment=service.getBusinessSegmentBybusSeqId(bus_Seg_Id);
+			BusinessSegment businessSegment=service.getBusinessSegmentBybusSegId(bus_Seg_Id);
 			HttpSession ssn=request.getSession();
 			ssn.setAttribute("businessSegment", businessSegment);
 			response.sendRedirect("view-busseg.jsp");	

@@ -22,7 +22,7 @@
 <input type="text" name="bus_Seg_Name" class="form-control">
 <label for="bus_Seg_Seq">Enter Seq</label>
 <input type="text" name="bus_Seg_Seq" class="form-control">
-<button type="submit" class="btn btn-dark">Added Business Segment</button>
+<button type="submit" class="btn btn-dark">Add Business Segment</button>
 
 </form>
 </div>

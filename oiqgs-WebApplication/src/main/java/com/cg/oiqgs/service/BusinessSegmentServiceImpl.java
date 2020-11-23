@@ -24,9 +24,9 @@ public class BusinessSegmentServiceImpl implements IBusinessSegmentService{
 		return repo.getAllBusinessSegment();
 	}
 
-	public BusinessSegment getBusinessSegmentBybusSeqId(String busSeqId) throws SQLException {
+	public BusinessSegment getBusinessSegmentBybusSegId(String busSegId) throws SQLException {
 		// TODO Auto-generated method stub
-		return repo.getBusinessSegmentBybusSeqId(busSeqId);
+		return repo.getBusinessSegmentBybusSeqId(busSegId);
 	}
 
 	public BusinessSegment updateBusinessSegment(BusinessSegment businessSegment) throws SQLException {
@@ -39,5 +39,6 @@ public class BusinessSegmentServiceImpl implements IBusinessSegmentService{
 		return repo.deleteBusinessSegment(busSegId);
 	}
 
+	
 	
 }

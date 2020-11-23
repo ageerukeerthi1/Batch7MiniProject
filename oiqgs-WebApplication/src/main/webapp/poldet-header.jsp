@@ -24,14 +24,15 @@ color: white;
 </head>
 <body>
 <header>
-<h1>Business Segment</h1>
+<h1>Policy Details</h1>
 <ul>
-<li><a href="add-busseg.jsp">Add BusinessSegments</a></li>
-<li><a href="businesssegments.jsp">View all BusinessSegments</a></li>
-<li>
-	<form action="view-busseg" method="get" class="form-inline">
-		<input type="text" name="bus_Seg_Id">
-		<button type="submit" class="btn-dark">Search BusSeg</button>
+<li><a href="add-poldet.jsp">Add Policy Details</a></li>
+
+<li><a href="policydetails.jsp">View all PolicyDetails</a></li>
+<li><form action="view-poldet" method="get" class="form-inline">
+	
+	<input type="text" name="PolicyNumber">
+	<button type="submit" class="btn-dark">Search Policy Details</button>
 	</form>
 </li>
 </ul>

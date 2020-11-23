@@ -1,5 +1,8 @@
+<%@page import="java.util.List"%>
+<%@page import="com.cg.oiqgs.model.BusinessSegment"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +23,26 @@
 		<th>BusSegId</th>
 		<th>BusSegSeq</th>
 		<th>BusSegName</th>
-	</tr>
+		</tr>
+		
+		<tbody> 
+ 			<% List<BusinessSegment> businessSegment_list = (List)session.getAttribute("businessSegments"); %>
+ 
+			<% 
+				for (BusinessSegment business : businessSegment_list) { 
+			%> 
+			<tr> 
+				<td><%=business.getBusSegId()%></td> 
+				<td><%=business.getBusSegSeq()%></td> 
+				<td><%=business.getBusSegName()%></td> 
+				
+			</tr> 
+			<% 
+				} 
+			%> 
+			</tbody> 
+
 	
-	
-	<tr>
-		<td>${businessSegment.busSegId}</td>
-		<td>${businessSegment.busSegSeq} </td>
-		<td>${businessSegment.busSegName} </td>
-	</tr>
 	
 	</table>
 	

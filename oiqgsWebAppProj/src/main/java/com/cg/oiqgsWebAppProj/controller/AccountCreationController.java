@@ -78,7 +78,7 @@ public class AccountCreationController extends HttpServlet {
 	
 		}
 		//logger.info("Account Created");
-		//doGet(request, response);
+		
 	
 		}
 			

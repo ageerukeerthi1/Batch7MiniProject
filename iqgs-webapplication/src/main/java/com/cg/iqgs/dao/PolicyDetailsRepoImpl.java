@@ -1,4 +1,4 @@
-package com.cg.oiqgs.dao;
+package com.cg.iqgs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.cg.oiqgs.exception.QuestionIdNotFoundException;
-import com.cg.oiqgs.model.PolicyDetails;
+import com.cg.iqgs.exception.QuestionIdNotFoundException;
+import com.cg.iqgs.model.PolicyDetails;
 
 public class PolicyDetailsRepoImpl implements IPolicyDetailsRepo {
 	PreparedStatement psmt;
@@ -16,7 +16,7 @@ public class PolicyDetailsRepoImpl implements IPolicyDetailsRepo {
 	
 	public PolicyDetailsRepoImpl() {
 		try {
-			connection=DBUtil.createConnection();
+			connection=DBUtil.getConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Answers Available</h2>
-<form action="viewall-poldet" method="get">
+<h2>Business Segments Available</h2>
+<form action="view-all" method="get">
 
 
- <button type="submit">View All Policy Details</button>
+ <button type="submit">View All Business Segments</button>
 
 </form>
 

@@ -1,4 +1,4 @@
-package com.cg.oiqgs.dao;
+package com.cg.iqgs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cg.oiqgs.exception.BusinessSegmentNotFoundException;
-import com.cg.oiqgs.model.BusinessSegment;
-import com.cg.oiqgs.model.PolicyDetails;
+import com.cg.iqgs.exception.BusinessSegmentNotFoundException;
+import com.cg.iqgs.model.BusinessSegment;
+import com.cg.iqgs.model.PolicyDetails;
 
 public class BusinessRepoImpl implements IBusinessRepo {
 	PreparedStatement psmt;
@@ -18,7 +18,7 @@ public class BusinessRepoImpl implements IBusinessRepo {
 
 	public BusinessRepoImpl()  {
 		try {
-			connection=DBUtil.createConnection();
+			connection=DBUtil.getConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Account</title>
+<title>Business Segment</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style type="text/css">
 ul{
@@ -24,12 +24,16 @@ color: white;
 </head>
 <body>
 <header>
-<h1>Account</h1>
+<h1>Business Segment</h1>
 <ul>
-<li><a href="add-businessSegment.jsp">Add Account</a></li>
-
-<!--<li><a href="view-all">View all Accounts</a></li>-->
-<li><form action="view-businessSegment" method="get" class="form-inline"><input type="text" name="busSegId"><button type="submit" class="btn-dark">Search account</button></form></li>
+<li><a href="add-busseg.jsp">Add BusinessSegments</a></li>
+<li><a href="businesssegments.jsp">Check BusinessSegments</a></li>
+<li>
+	<form action="view-busseg" method="get" class="form-inline">
+		<input type="text" name="bus_Seg_Id">
+		<button type="submit" class="btn-dark">Search BusSeg</button>
+	</form>
+</li>
 </ul>
 </header>
 </body>

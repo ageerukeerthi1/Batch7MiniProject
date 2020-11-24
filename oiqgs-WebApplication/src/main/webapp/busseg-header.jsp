@@ -27,7 +27,7 @@ color: white;
 <h1>Business Segment</h1>
 <ul>
 <li><a href="add-busseg.jsp">Add BusinessSegments</a></li>
-<li><a href="businesssegments.jsp">View all BusinessSegments</a></li>
+<li><a href="businesssegments.jsp">Check BusinessSegments</a></li>
 <li>
 	<form action="view-busseg" method="get" class="form-inline">
 		<input type="text" name="bus_Seg_Id">

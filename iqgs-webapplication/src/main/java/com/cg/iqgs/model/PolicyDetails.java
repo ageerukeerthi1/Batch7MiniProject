@@ -1,4 +1,4 @@
-package com.cg.oiqgs.model;
+package com.cg.iqgs.model;
 
 public class PolicyDetails {
 	private long policyNumber;

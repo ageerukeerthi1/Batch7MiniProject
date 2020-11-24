@@ -1,4 +1,4 @@
-package com.cg.oiqgs.model;
+package com.cg.iqgs.model;
 
 public class BusinessSegment {
 	private String busSegId;
@@ -84,7 +84,5 @@ public class BusinessSegment {
 			return false;
 		return true;
 	}
-	
-	
 	
 }
